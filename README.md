@@ -17,11 +17,10 @@ A lightweight GPT-style transformer implemented in PyTorch for training on Warha
 ### Table of Contents
 
 1. [Requirements](#requirements)  
-2. [Installation](#installation)  
-3. [Notebook Usage](#notebook-usage)  
-4. [Script Usage](#script-usage)  
-5. [Hyperparameters](#hyperparameters)  
-6. [License](#license)  
+2. [Notebook Usage](#notebook-usage)  
+3. [Script Usage](#script-usage)  
+4. [Hyperparameters](#default-hyperparameters)  
+5. [License](#license)  
 
 ---
 
