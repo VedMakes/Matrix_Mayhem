@@ -1,0 +1,22 @@
+[project]
+name = "minigpt"
+version = "0.1.0"
+description = "A tiny GPT-style transformer with a HuggingFace-like API"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name="You"}]
+dependencies = [
+  "torch",
+  "tiktoken",
+  "tqdm",
+]
+
+[project.scripts]
+minigpt = "minigpt.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
