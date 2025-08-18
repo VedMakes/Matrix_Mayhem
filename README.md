@@ -69,5 +69,44 @@ print(sample_text)
 | `learning_rate`| 3e-4          | Adam optimizer learning rate                          |
 | `temperature`  | 1.0           | Sampling temperature for text generation              |
 
+## Minigpt Modular
+
+Tiny GPT-style Transformer with a HuggingFace-like API (CLI, and tiktoken GPT-2 tokenizer).
+
+### Usage as CLI (Not Recommended) :
+#### train
+```
+minigpt train \
+  --data /path/to/your_corpus.txt \
+  --out_dir checkpoints/minigpt \
+  --d_model 256 --num_heads 8 --d_ff 1024 --num_layers 4 \
+  --seq_len 64 --batch_size 16 --epochs 1000 --lr 3e-4
+```
+#### generate
+```
+minigpt generate \
+  --ckpt checkpoints/minigpt \
+  --prompt "Potter was" \
+  --max_tokens 80 --temperature 0.9
+```
+
+### Usage in-programme(Recommended) :
+
+```
+from minigpt import MiniGPTConfig, MiniGPTModel, TikTokenizer, generate
+from minigpt.train import train_model
+
+cfg = MiniGPTConfig()
+tok = TikTokenizer("gpt2")
+
+# Train
+model = train_model(open("corpus.txt").read(), out_dir="checkpoints/minigpt", config=cfg, epochs=500)
+
+# Load + Generate
+model = MiniGPTModel.from_pretrained("checkpoints/minigpt").eval()
+txt = generate(model, "The Emperor", tok, max_tokens=60, temperature=0.9, device="cuda")
+print(txt)
+```
+
 ### License
 MIT License – free to use, modify, and share.
