@@ -52,6 +52,17 @@ sample_text = generate(model, start_text="The Emperor", max_tokens=100)
 print(sample_text)
 ```
 
+Or, if you have a large corpus and want to train on chunks instead-
+
+```
+chapters = chunk_text_words(raw_dataset)
+
+train_on_chapters(train, chapters, epochs = 3) ## epochs for each chapter- different for per chapter epoch.
+
+sample_text = generate(model, start_text="harry was quite sad when...")
+print(sample_text)
+```
+
 ### Default Hyperparameters
 
 | Parameter      | Default Value | Description                                           |
