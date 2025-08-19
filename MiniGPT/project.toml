@@ -1,10 +1,10 @@
 [project]
-name = "minigpt"
+name = "MiniGPT"
 version = "0.1.0"
 description = "A tiny GPT-style transformer with a HuggingFace-like API"
 readme = "README.md"
 requires-python = ">=3.9"
-authors = [{name="You"}]
+authors = [{name="VedMakes"}]
 dependencies = [
   "torch",
   "tiktoken",
@@ -12,11 +12,12 @@ dependencies = [
 ]
 
 [project.scripts]
-minigpt = "minigpt.cli:main"
+minigpt = "MiniGPT.cli:main"
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
+
 where = ["src"]
